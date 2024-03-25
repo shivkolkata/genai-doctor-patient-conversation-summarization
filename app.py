@@ -43,14 +43,14 @@ def process_conversation(conversation):
                                      #verbose=True
     )
 
-    output = output = summary_chain.run(docs)
+    output = summary_chain.invoke(docs)
     
-    return output
+    return output['output_text']
 
-with gr.Blocks(gr.themes.Glass(),title="Doctor vs Patient Conversation Summarization") as demo:
+with gr.Blocks(gr.themes.Glass(),title="Summarization App : Patient vs Doctor Conversation (Built on Closed Source)") as demo:
     gr.Markdown(
         """
-        # Doctor vs Patient Conversation Summarization
+        # Summarization App : Patient vs Doctor Conversation (Built on Closed Source)
         """)
     textbox = gr.Textbox(lines=1, max_lines=500,label="Enter the conversation details to summarize", value="")
     with gr.Row():
